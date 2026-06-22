@@ -61,9 +61,9 @@ export function CinematicIntro({ onComplete }: CinematicIntroProps) {
         <motion.h1
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: stage >= 2 ? 1 : 0, y: stage >= 2 ? 0 : 20 }}
-          className="text-4xl md:text-5xl font-bold tracking-widest text-center"
+          className="text-4xl md:text-5xl font-bold tracking-widest text-center font-serif"
         >
-          SNS INSTITUTIONS
+          <span className="text-orange-500">SNS</span> <span className="text-white">INSTITUTIONS</span>
         </motion.h1>
 
         <motion.p
