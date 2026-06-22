@@ -4,8 +4,8 @@
   --font-sans: 'Inter', sans-serif;
   --font-serif: var(--font-serif), serif;
   
-  /* Mild vintage luxury theme with Peach tones */
-  --color-background: #FFDCC2;
+  /* Mild vintage luxury theme with Cream/Ivory tones */
+  --color-background: #FDF2E9;
   --color-foreground: #2B2B2B;
   --color-primary: #D97706; /* Orange touch */
   --color-secondary: #78716C;
@@ -21,7 +21,7 @@
 
 @layer base {
   body {
-    background: linear-gradient(135deg, #FFDCC2 0%, #F8D7C0 100%);
+    background: linear-gradient(135deg, #FDF2E9 0%, #FBE8D6 100%);
     background-attachment: fixed;
     color: var(--color-foreground);
     -webkit-font-smoothing: antialiased;
