@@ -4,14 +4,14 @@
   --font-sans: 'Inter', sans-serif;
   --font-serif: var(--font-serif), serif;
   
-  /* Mild vintage luxury theme */
-  --color-background: #FAF9F6;
+  /* Mild vintage luxury theme with Peach tones */
+  --color-background: #FFDCC2;
   --color-foreground: #2B2B2B;
   --color-primary: #D97706; /* Orange touch */
   --color-secondary: #78716C;
   --color-accent: #B45309;
   
-  --color-glass: rgba(255, 255, 255, 0.7);
+  --color-glass: rgba(255, 255, 255, 0.4);
   --color-glass-border: rgba(0, 0, 0, 0.05);
 
   --animate-fade-in: fade-in 1s ease-out;
@@ -21,7 +21,8 @@
 
 @layer base {
   body {
-    background-color: var(--color-background);
+    background: linear-gradient(135deg, #FFDCC2 0%, #F8D7C0 100%);
+    background-attachment: fixed;
     color: var(--color-foreground);
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;

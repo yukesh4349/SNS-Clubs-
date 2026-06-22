@@ -11,7 +11,7 @@ export default function Home() {
   const [showIntro, setShowIntro] = useState(true);
 
   return (
-    <main className="relative min-h-screen overflow-hidden bg-background">
+    <main className="relative min-h-screen overflow-hidden">
       <AnimatePresence>
         {showIntro && (
           <CinematicIntro key="intro" onComplete={() => setShowIntro(false)} />
@@ -25,45 +25,45 @@ export default function Home() {
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             transition={{ duration: 1, delay: 0.5 }}
-            className="w-full"
+            className="w-full relative z-10"
           >
-            {/* HERO SECTION */}
-            <section className="relative h-screen w-full flex flex-col items-center justify-center overflow-hidden">
-              {/* Background Video/Particles */}
-              <div className="absolute inset-0 z-0 opacity-20">
-                <video
-                  autoPlay
-                  loop
-                  muted
-                  playsInline
-                  className="object-cover w-full h-full"
-                >
-                  <source src="https://videos.pexels.com/video-files/3129957/3129957-uhd_2560_1440_25fps.mp4" type="video/mp4" />
-                </video>
-                <div className="absolute inset-0 bg-gradient-to-b from-transparent to-background" />
+            {/* HEADER */}
+            <header className="absolute top-0 left-0 w-full p-6 z-50 flex justify-between items-center">
+              <div className="font-serif text-2xl font-bold tracking-widest text-foreground">
+                <span className="text-primary">SNS</span> INSTITUTIONS
               </div>
+              <div className="hidden md:flex gap-8 text-sm font-semibold tracking-widest text-foreground/80">
+                <Link href="#about" className="hover:text-primary transition-colors">ABOUT</Link>
+                <Link href="#clubs" className="hover:text-primary transition-colors">CLUBS</Link>
+                <Link href="#contact" className="hover:text-primary transition-colors">CONTACT</Link>
+              </div>
+            </header>
 
+            {/* HERO SECTION */}
+            <section className="relative min-h-screen w-full flex flex-col items-center justify-center pt-24 pb-12">
               <div className="z-10 text-center px-4 max-w-5xl">
                 <motion.div
                   initial={{ y: 50, opacity: 0 }}
                   animate={{ y: 0, opacity: 1 }}
                   transition={{ duration: 1, delay: 1 }}
                 >
-                  <h1 className="text-5xl md:text-7xl font-extrabold tracking-tight mb-6 text-foreground font-serif">
-                    SNS CLUBS <span className="text-gradient-primary">PORTAL</span>
+                  <p className="text-sm font-semibold tracking-widest text-primary mb-6 uppercase">
+                    Empowering Student Life
+                  </p>
+                  <h1 className="text-6xl md:text-8xl font-extrabold tracking-tighter mb-6 text-foreground font-serif drop-shadow-sm">
+                    SNS CLUBS <br className="hidden md:block"/> <span className="text-primary">PORTAL</span>
                   </h1>
-                  <p className="text-xl md:text-3xl text-secondary font-light mb-12 flex justify-center gap-4 md:gap-8 flex-wrap">
-                    <span>Discover</span> <span className="text-primary">•</span>
-                    <span>Learn</span> <span className="text-primary">•</span>
-                    <span>Innovate</span> <span className="text-primary">•</span>
-                    <span>Lead</span>
+                  <p className="text-xl md:text-2xl text-foreground/70 font-light mb-12 max-w-3xl mx-auto leading-relaxed">
+                    A vibrant community for students to discover their passions, learn new skills, innovate for the future, and lead with purpose.
                   </p>
                   
-                  <div className="flex flex-col sm:flex-row gap-6 justify-center">
-                    <button className="px-8 py-4 rounded-full bg-foreground text-background font-semibold text-lg hover:bg-foreground/80 transition-all transform hover:scale-105 flex items-center justify-center gap-2 shadow-lg">
-                      Explore Clubs <ArrowRight size={20} />
-                    </button>
-                    <button className="px-8 py-4 rounded-full glass font-semibold text-lg text-foreground hover:bg-black/5 transition-all transform hover:scale-105">
+                  <div className="flex flex-col sm:flex-row gap-6 justify-center mt-8">
+                    <Link href="#clubs">
+                      <button className="w-full sm:w-auto px-10 py-4 rounded-full bg-foreground text-[#FFDCC2] font-semibold text-lg hover:bg-foreground/80 transition-all transform hover:-translate-y-1 flex items-center justify-center gap-2 shadow-xl">
+                        Explore Clubs <ArrowRight size={20} />
+                      </button>
+                    </Link>
+                    <button className="w-full sm:w-auto px-10 py-4 rounded-full bg-white/40 border border-foreground/10 font-semibold text-lg text-foreground hover:bg-white/60 transition-all transform hover:-translate-y-1 shadow-md backdrop-blur-sm">
                       Join a Club
                     </button>
                   </div>
@@ -72,7 +72,7 @@ export default function Home() {
             </section>
 
             {/* ABOUT SNS INSTITUTIONS SECTION */}
-            <section className="py-24 px-6 md:px-12 relative z-10">
+            <section id="about" className="py-24 px-6 md:px-12 relative z-10 bg-white/20 backdrop-blur-md border-y border-foreground/5">
               <div className="max-w-7xl mx-auto">
                 <div className="text-center mb-16">
                   <h2 className="text-3xl md:text-5xl font-bold mb-6 text-foreground font-serif">About SNS Institutions</h2>
@@ -91,7 +91,7 @@ export default function Home() {
             </section>
 
             {/* CLUBS SHOWCASE SECTION */}
-            <section className="py-24 px-6 md:px-12 relative z-10">
+            <section id="clubs" className="py-24 px-6 md:px-12 relative z-10">
               <div className="max-w-7xl mx-auto">
                 <div className="flex items-end justify-between mb-16">
                   <div>
@@ -109,8 +109,17 @@ export default function Home() {
             </section>
 
             {/* FOOTER */}
-            <footer className="py-12 border-t border-black/10 text-center text-secondary">
-              <p>© 2026 SNS Institutions. All rights reserved.</p>
+            <footer id="contact" className="py-16 bg-foreground text-[#FFDCC2] text-center border-t border-black/10">
+              <div className="max-w-7xl mx-auto px-6">
+                <h3 className="font-serif text-3xl font-bold mb-6"><span className="text-primary">SNS</span> INSTITUTIONS</h3>
+                <p className="mb-8 opacity-80 max-w-xl mx-auto">Empowering students through innovation, creativity, and leadership. Join a club today and be part of our vibrant community.</p>
+                <div className="flex justify-center gap-6 mb-12 opacity-80">
+                  <span className="hover:text-primary cursor-pointer transition-colors">Privacy Policy</span>
+                  <span className="hover:text-primary cursor-pointer transition-colors">Terms of Service</span>
+                  <span className="hover:text-primary cursor-pointer transition-colors">Contact Us</span>
+                </div>
+                <p className="opacity-60 text-sm">© 2026 SNS Institutions. All rights reserved.</p>
+              </div>
             </footer>
 
           </motion.div>
@@ -124,9 +133,9 @@ function StatCard({ icon, value, label }: { icon: React.ReactNode, value: string
   return (
     <motion.div 
       whileHover={{ y: -5 }}
-      className="glass-card p-8 rounded-2xl flex flex-col items-center justify-center text-center group"
+      className="glass-card p-8 rounded-2xl flex flex-col items-center justify-center text-center group bg-white/40"
     >
-      <div className="mb-4 p-4 rounded-full bg-black/5 text-secondary group-hover:text-primary group-hover:bg-primary/10 transition-colors">
+      <div className="mb-4 p-4 rounded-full bg-foreground/5 text-secondary group-hover:text-primary group-hover:bg-primary/10 transition-colors">
         {icon}
       </div>
       <h3 className="text-3xl md:text-4xl font-bold text-foreground mb-2 font-serif">{value}</h3>
@@ -140,7 +149,7 @@ function ClubCard({ club }: { club: Club }) {
     <Link href={`/club/${club.id}`}>
       <motion.div 
         whileHover={{ scale: 1.02 }}
-        className="glass-card rounded-2xl overflow-hidden relative group cursor-pointer h-[400px] border border-black/5"
+        className="glass-card rounded-2xl overflow-hidden relative group cursor-pointer h-[400px] border border-black/5 bg-white/40"
       >
         {/* Default Image Background */}
         <div 
@@ -159,7 +168,7 @@ function ClubCard({ club }: { club: Club }) {
           <source src={club.videoPreview} type="video/mp4" />
         </video>
 
-        {/* Overlay Gradients - adjusted for light theme text legibility on hover vs static */}
+        {/* Overlay Gradients */}
         <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/40 to-transparent opacity-90 transition-opacity" />
         
         {/* Glowing Border Effect on Hover */}
